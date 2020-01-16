@@ -5,9 +5,11 @@ import { Route, Switch, Link, useParams } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 //import Container from "@material-ui/core/Container";
+import DefaultPageTitle from "./PageTitle";
+import { PageTitle } from "./PageTitle";
 
 import { ALL_PEOPLE, PERSON_BY_ID } from "../Queries/PeopleQueries";
-import MyDropzone from "./MyDropzone";
+import { MyDropzone } from "./MyDropzone";
 
 const HomepageLayout = ({ children }) => {
   return (
@@ -27,7 +29,7 @@ const PeopleTable = () => {
         <p>loading</p>
       ) : (
         <>
-          <h3>All Users</h3>
+          <DefaultPageTitle title="All Users" />
           <ul>
             {all_people.map(({ node }) => (
               <Link to={`/home/${node.id}`} key={node.id}>
@@ -54,7 +56,7 @@ export const SinglePeople = () => {
 
   return (
     <div>
-      <h1>Single User Page</h1>
+      <PageTitle title="User Details" />
       {!loading && (
         <div>
           <p>id: {nodeId}</p>
@@ -84,19 +86,3 @@ export const Homepage = () => {
     </>
   );
 };
-
-// ==== EXAMPLE #1 ====
-// return (
-// 	<>
-// 		<HomepageLayout>
-// 			<Grid container>
-// 				<Grid item xs={6}>
-// 					<PeopleTable />
-// 				</Grid>
-// 				<Grid item xs={6}>
-// 					<Route path="/home/:id" component={SinglePeople} />
-// 				</Grid>
-// 			</Grid>
-// 		</HomepageLayout>
-// 	</>
-// );

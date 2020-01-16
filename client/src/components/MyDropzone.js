@@ -1,34 +1,38 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import { useDropzone } from "react-dropzone";
+import { makeStyles } from "@material-ui/core/styles";
 
-const MyDropzone = () => {
-  const [photo, setPhoto] = useState("");
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+const useStyles = makeStyles(theme => ({
+  dropzone: {
+    border: "2px dashed lightblue",
+    padding: "20px"
+  }
+}));
 
-  const onDrop = useCallback(acceptedFiles => {
-    // Do something with the files
-  }, []);
+export const MyDropzone = () => {
+  const classes = useStyles();
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
 
-  const handleInputChange = e => {
-    console.log(e.target);
-    setPhoto(e.target.photo.value);
-  };
-
-  console.log(getRootProps());
-  console.log("====");
-  console.log(getInputProps());
+  const files = acceptedFiles.map(file => {
+    console.log(URL.createObjectURL(file));
+    return (
+      <li key={file.path}>
+        {file.path} - {file.size} bytes{" "}
+        <img src={URL.createObjectURL(file)} alt="car" />
+      </li>
+    );
+  });
 
   return (
-    <div {...getRootProps()}>
-      <input {...getInputProps()} name="photo" />
-      {isDragActive ? (
-        <p>Drop the files here ...</p>
-      ) : (
+    <section className="container">
+      <div {...getRootProps()} className={classes.dropzone}>
+        <input {...getInputProps()} />
         <p>Drag 'n' drop some files here, or click to select files</p>
-      )}
-      <div>{photo}</div>
-    </div>
+      </div>
+      <aside>
+        <h4>Files</h4>
+        <ul>{files}</ul>
+      </aside>
+    </section>
   );
 };
-
-export default MyDropzone;
