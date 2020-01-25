@@ -47,7 +47,9 @@ const SimpleTestFormController = ({ children }) => {
     onSubmit
   });
 };
+```
 
+```js
 const SimpleFormFields = ({ handleSubmit, pristine, reset, submitting }) => {
   return (
     <>
@@ -66,7 +68,9 @@ const SimpleFormFields = ({ handleSubmit, pristine, reset, submitting }) => {
     </>
   );
 };
+```
 
+```js
 export const SimpleTestForm = reduxForm({
   form: "SIMPLE_FORM"
 })(({ handleSubmit, pristine, reset, submitting }) => {
