@@ -10,6 +10,7 @@ import { PageTitle } from "./PageTitle";
 
 import { ALL_PEOPLE, PERSON_BY_ID } from "../Queries/PeopleQueries";
 import { MyDropzone } from "./MyDropzone";
+import { SimpleTestPage } from "./SimpleTestPage";
 
 const HomepageLayout = ({ children }) => {
   return (
@@ -47,11 +48,9 @@ const PeopleTable = () => {
 
 export const SinglePeople = () => {
   let { id } = useParams();
-  console.log(id);
   const { loading, error, data } = useQuery(PERSON_BY_ID, {
     variables: { id: parseInt(id) }
   });
-  console.log(data);
   const { nodeId, firstName, lastName } = get(data, "personById", {});
 
   return (
@@ -77,6 +76,7 @@ export const Homepage = () => {
           <Grid item xs={6}>
             <PeopleTable />
             <MyDropzone />
+            <SimpleTestPage />
           </Grid>
           <Grid item xs={6}>
             <Route path="/home/:id" component={SinglePeople} />

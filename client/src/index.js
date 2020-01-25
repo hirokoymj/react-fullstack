@@ -1,10 +1,11 @@
-import ApolloBoost, { gql } from "apollo-boost";
-import React, { Fragment, useState } from "react";
+import ApolloBoost from "apollo-boost";
+import React from "react";
 import { render } from "react-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 
 import { AppRouter } from "./router/AppRouter";
 import { ThemeProvider } from "./Styles/ThemeProvier";
+import { ReduxProvider } from "./Redux/ReduxProvider";
 
 const client = new ApolloBoost({
   uri: "http://localhost:3000/graphql"
@@ -12,10 +13,22 @@ const client = new ApolloBoost({
 
 const App = () => (
   <ApolloProvider client={client}>
-    <ThemeProvider>
-      <AppRouter />
-    </ThemeProvider>
+    <ReduxProvider>
+      <ThemeProvider>
+        <AppRouter />
+      </ThemeProvider>
+    </ReduxProvider>
   </ApolloProvider>
 );
+
+// const App = () => (
+//   <ApolloProvider client={client}>
+//     <ReduxProvider> //<===== NEW!!! ReduxProvider
+//       <ThemeProvider>
+//         <AppRouter />
+//       </ThemeProvider>
+//     </ReduxProvider>
+//   </ApolloProvider>
+// );
 
 render(<App />, document.getElementById("root"));
