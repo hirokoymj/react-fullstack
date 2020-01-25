@@ -16,7 +16,78 @@ connect(state => ({
 ```
 
 <hr />
-[ 01/24/2020 ]
+
+### Redux Form Architecture
+
+- FormController
+- Redux Form Component
+- FormFields
+
+```js
+import React from "react";
+import { Field, reduxForm } from "redux-form";
+
+const SimpleTestFormController = ({ children }) => {
+  const initialValues = {
+    firstName: "Hiroko"
+  };
+
+  const onSubmit = values => {};
+
+  const validate = values => {
+    let errors = {};
+    if (!values.firstName) errors.firstName = "Required";
+
+    return errors;
+  };
+
+  return children({
+    initialValues,
+    validate,
+    onSubmit
+  });
+};
+
+const SimpleFormFields = ({ handleSubmit, pristine, reset, submitting }) => {
+  return (
+    <>
+      <Field
+        name="firstName"
+        component="input"
+        type="text"
+        placeholder="First Name"
+      />
+      <Field
+        name="lastName"
+        component="input"
+        type="text"
+        placeholder="Last Name"
+      />
+    </>
+  );
+};
+
+export const SimpleTestForm = reduxForm({
+  form: "SIMPLE_FORM"
+})(({ handleSubmit, pristine, reset, submitting }) => {
+  return (
+    <SimpleFormFields
+      handleSubmit={handleSubmit}
+      pristine={pristine}
+      reset={reset}
+      submitting={submitting}
+    />
+  );
+});
+
+export const SimpleTestPage = () => {
+  return (
+    <SimpleTestFormController>
+      {props => <SimpleTestForm {...props} />}
+    </SimpleTestFormController>
+  );
+};
+```
 
 ### References:
 
