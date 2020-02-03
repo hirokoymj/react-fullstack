@@ -1,6 +1,13 @@
 # Redux Form
 
-### submitting property
+
+- [Redux Form](#Redux-Form)
+  - [submitting property](#submitting-property)
+  - [formValueSelector](#formValueSelector)
+  - [Redux Form Architecture](#Redux-Form-Architecture)
+
+
+## submitting property
 
 [submitting](https://redux-form.com/8.3.0/docs/api/reduxform.md/#-code-onsubmit-function-code-optional-)
 
@@ -19,7 +26,7 @@ export const SimpleTestForm = reduxForm({
 });
 ```
 
-### formValueSelector
+## formValueSelector
 
 - `formValueSelector` allows any react components to access a redux form values.
 
@@ -36,7 +43,7 @@ connect(state => ({
 
 <hr />
 
-### Redux Form Architecture
+## Redux Form Architecture
 
 - FormController
 - Redux Form Component
@@ -112,7 +119,4 @@ export const SimpleTestPage = () => {
 };
 ```
 
-### References:
 
-- [formValueSelector](https://redux-form.com/8.2.2/docs/api/formvalueselector.md/)
-- [submitting](https://redux-form.com/8.3.0/docs/api/reduxform.md/#-code-onsubmit-function-code-optional-)
