@@ -1,5 +1,23 @@
 # Redux Form
 
+### submitting property
+
+[Redux form: onSubmit->submitting](https://redux-form.com/8.3.0/docs/api/reduxform.md/#-code-onsubmit-function-code-optional-)
+>If your onSubmit function returns a promise, the **submitting** property will be set to true until the promise has been resolved or rejected.
+
+```js
+export const SimpleTestForm = reduxForm({
+  form: "SIMPLE_FORM"
+})(({ handleSubmit, submitting }) => { //<-- !!!submitting !!!
+  return (
+    <SimpleFormFields
+      handleSubmit={handleSubmit}
+      submitting={submitting}
+    />
+  );
+});
+```
+
 ### formValueSelector
 
 - `formValueSelector` allows any react components to access a redux form values.
