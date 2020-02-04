@@ -5,6 +5,8 @@
 - [@apollo/react-hooks](Apollo-Client-React.md#apolloreact-hooks)
 - [Installation](Apollo-Client-React.md#installation)
 - [useMutation: example 1](Apollo-Client-React.md#usemutation---example-1)
+- After mutation get user ID and destroy the redux form.
+- CRUD
 
 ### Redux Form
 
