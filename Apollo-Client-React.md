@@ -1,10 +1,9 @@
 # Apollo Client - React
 
-- [Apollo Client: React](https://www.apollographql.com/docs/react/)
+## @apollo/react-hooks
 
-# @apollo/react-hooks
 - [@apollo/react-hooks]()
-
+- [Apollo Client: React](https://www.apollographql.com/docs/react/)
 
 ### Installation
 
@@ -13,9 +12,7 @@ npm install @apollo/react-hooks
 ```
 <hr />
 
-### useMutation
-
-**Example 1**
+### useMutation - Example 1
 
 - POINT - variables have to pass `person object`!!
 ```js
