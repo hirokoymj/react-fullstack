@@ -3,8 +3,8 @@
 ### Apollo Client
 
 - [@apollo/react-hooks](Apollo-Client-React/#@apollo/react-hooks)
-- [Installation](Apollo-Client-React/#instrallation)
-- [useMutation: example 1](Apollo-Client-React/#)
+- [Installation](Apollo-Client-React/#installation)
+- [useMutation: example 1](Apollo-Client-React.md#usemutation---example-1)
 
 ### Redux Form
 
