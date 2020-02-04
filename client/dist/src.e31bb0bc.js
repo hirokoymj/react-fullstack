@@ -62773,8 +62773,6 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-// Function Name Example: FLEET_LISTINGS
-// Query Name Example: FleetListings
 var ALL_PEOPLE = (0, _apolloBoost.gql)(_templateObject());
 exports.ALL_PEOPLE = ALL_PEOPLE;
 var PERSON_BY_ID = (0, _apolloBoost.gql)(_templateObject2());
@@ -82637,7 +82635,31 @@ var updateSyncWarnings = _actions.default.updateSyncWarnings;
 exports.updateSyncWarnings = updateSyncWarnings;
 var updateSyncErrors = _actions.default.updateSyncErrors;
 exports.updateSyncErrors = updateSyncErrors;
-},{"./actions":"../node_modules/redux-form/es/actions.js","./actionTypes":"../node_modules/redux-form/es/actionTypes.js","./defaultShouldAsyncValidate":"../node_modules/redux-form/es/defaultShouldAsyncValidate.js","./defaultShouldValidate":"../node_modules/redux-form/es/defaultShouldValidate.js","./defaultShouldError":"../node_modules/redux-form/es/defaultShouldError.js","./defaultShouldWarn":"../node_modules/redux-form/es/defaultShouldWarn.js","./Form":"../node_modules/redux-form/es/Form.js","./FormName":"../node_modules/redux-form/es/FormName.js","./FormSection":"../node_modules/redux-form/es/FormSection.js","./SubmissionError":"../node_modules/redux-form/es/SubmissionError.js","./propTypes":"../node_modules/redux-form/es/propTypes.js","./Field":"../node_modules/redux-form/es/Field.js","./Fields":"../node_modules/redux-form/es/Fields.js","./FieldArray":"../node_modules/redux-form/es/FieldArray.js","./formValueSelector":"../node_modules/redux-form/es/formValueSelector.js","./formValues":"../node_modules/redux-form/es/formValues.js","./getFormError":"../node_modules/redux-form/es/getFormError.js","./getFormNames":"../node_modules/redux-form/es/getFormNames.js","./getFormValues":"../node_modules/redux-form/es/getFormValues.js","./getFormInitialValues":"../node_modules/redux-form/es/getFormInitialValues.js","./getFormSyncErrors":"../node_modules/redux-form/es/getFormSyncErrors.js","./getFormMeta":"../node_modules/redux-form/es/getFormMeta.js","./getFormAsyncErrors":"../node_modules/redux-form/es/getFormAsyncErrors.js","./getFormSyncWarnings":"../node_modules/redux-form/es/getFormSyncWarnings.js","./getFormSubmitErrors":"../node_modules/redux-form/es/getFormSubmitErrors.js","./isAsyncValidating":"../node_modules/redux-form/es/isAsyncValidating.js","./isDirty":"../node_modules/redux-form/es/isDirty.js","./isInvalid":"../node_modules/redux-form/es/isInvalid.js","./isPristine":"../node_modules/redux-form/es/isPristine.js","./isValid":"../node_modules/redux-form/es/isValid.js","./isSubmitting":"../node_modules/redux-form/es/isSubmitting.js","./hasSubmitSucceeded":"../node_modules/redux-form/es/hasSubmitSucceeded.js","./hasSubmitFailed":"../node_modules/redux-form/es/hasSubmitFailed.js","./reduxForm":"../node_modules/redux-form/es/reduxForm.js","./reducer":"../node_modules/redux-form/es/reducer.js","./values":"../node_modules/redux-form/es/values.js"}],"components/SimpleTestPage.js":[function(require,module,exports) {
+},{"./actions":"../node_modules/redux-form/es/actions.js","./actionTypes":"../node_modules/redux-form/es/actionTypes.js","./defaultShouldAsyncValidate":"../node_modules/redux-form/es/defaultShouldAsyncValidate.js","./defaultShouldValidate":"../node_modules/redux-form/es/defaultShouldValidate.js","./defaultShouldError":"../node_modules/redux-form/es/defaultShouldError.js","./defaultShouldWarn":"../node_modules/redux-form/es/defaultShouldWarn.js","./Form":"../node_modules/redux-form/es/Form.js","./FormName":"../node_modules/redux-form/es/FormName.js","./FormSection":"../node_modules/redux-form/es/FormSection.js","./SubmissionError":"../node_modules/redux-form/es/SubmissionError.js","./propTypes":"../node_modules/redux-form/es/propTypes.js","./Field":"../node_modules/redux-form/es/Field.js","./Fields":"../node_modules/redux-form/es/Fields.js","./FieldArray":"../node_modules/redux-form/es/FieldArray.js","./formValueSelector":"../node_modules/redux-form/es/formValueSelector.js","./formValues":"../node_modules/redux-form/es/formValues.js","./getFormError":"../node_modules/redux-form/es/getFormError.js","./getFormNames":"../node_modules/redux-form/es/getFormNames.js","./getFormValues":"../node_modules/redux-form/es/getFormValues.js","./getFormInitialValues":"../node_modules/redux-form/es/getFormInitialValues.js","./getFormSyncErrors":"../node_modules/redux-form/es/getFormSyncErrors.js","./getFormMeta":"../node_modules/redux-form/es/getFormMeta.js","./getFormAsyncErrors":"../node_modules/redux-form/es/getFormAsyncErrors.js","./getFormSyncWarnings":"../node_modules/redux-form/es/getFormSyncWarnings.js","./getFormSubmitErrors":"../node_modules/redux-form/es/getFormSubmitErrors.js","./isAsyncValidating":"../node_modules/redux-form/es/isAsyncValidating.js","./isDirty":"../node_modules/redux-form/es/isDirty.js","./isInvalid":"../node_modules/redux-form/es/isInvalid.js","./isPristine":"../node_modules/redux-form/es/isPristine.js","./isValid":"../node_modules/redux-form/es/isValid.js","./isSubmitting":"../node_modules/redux-form/es/isSubmitting.js","./hasSubmitSucceeded":"../node_modules/redux-form/es/hasSubmitSucceeded.js","./hasSubmitFailed":"../node_modules/redux-form/es/hasSubmitFailed.js","./reduxForm":"../node_modules/redux-form/es/reduxForm.js","./reducer":"../node_modules/redux-form/es/reducer.js","./values":"../node_modules/redux-form/es/values.js"}],"Mutations/CreatePeople.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CREATE_PERSON = void 0;
+
+var _apolloBoost = require("apollo-boost");
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation CreatePerson($person: PersonInput!) {\n    createPerson(input: { person: $person }) {\n      person {\n        id\n        firstName\n        lastName\n      }\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var CREATE_PERSON = (0, _apolloBoost.gql)(_templateObject());
+exports.CREATE_PERSON = CREATE_PERSON;
+},{"apollo-boost":"../node_modules/apollo-boost/lib/bundle.esm.js"}],"components/SimpleTestPage.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -82649,28 +82671,52 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reduxForm = require("redux-form");
 
+var _reactHooks = require("@apollo/react-hooks");
+
+var _get = _interopRequireDefault(require("lodash/get"));
+
+var _CreatePeople = require("../Mutations/CreatePeople");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var SimpleTestFormController = function SimpleTestFormController(_ref) {
   var children = _ref.children;
   var initialValues = {};
 
+  var _useMutation = (0, _reactHooks.useMutation)(_CreatePeople.CREATE_PERSON),
+      _useMutation2 = _slicedToArray(_useMutation, 1),
+      createPerson = _useMutation2[0];
+
   var onSubmit = function onSubmit(values) {
-    console.log("onSubmit");
-    console.log(values);
+    try {
+      var resp = createPerson({
+        variables: {
+          person: {
+            firstName: values.firstName,
+            lastName: values.lastName
+          }
+        }
+      });
+      console.log(resp);
+      var id = (0, _get.default)(resp, "data/createPerson/person/id");
+      console.log(id);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   var validate = function validate(values) {
     var errors = {};
-
-    if (!values.firstName) {
-      errors.firstName = "Required";
-    }
-
-    if (!values.lastName) {
-      errors.lastName = "Required";
-    }
-
+    if (!values.firstName) errors.firstName = "Required";
+    if (!values.lastName) errors.lastName = "Required";
     return errors;
   };
 
@@ -82696,50 +82742,11 @@ var SimpleFormFields = function SimpleFormFields(_ref2) {
     component: "input",
     type: "text",
     placeholder: "Last Name"
-  }))), _react.default.createElement("div", null, _react.default.createElement("label", null, "Email"), _react.default.createElement("div", null, _react.default.createElement(_reduxForm.Field, {
-    name: "email",
-    component: "input",
-    type: "email",
-    placeholder: "Email"
-  }))), _react.default.createElement("div", null, _react.default.createElement("label", null, "Sex"), _react.default.createElement("div", null, _react.default.createElement("label", null, _react.default.createElement(_reduxForm.Field, {
-    name: "sex",
-    component: "input",
-    type: "radio",
-    value: "male"
-  }), " ", "Male"), _react.default.createElement("label", null, _react.default.createElement(_reduxForm.Field, {
-    name: "sex",
-    component: "input",
-    type: "radio",
-    value: "female"
-  }), " ", "Female"), _react.default.createElement("label", null, _react.default.createElement(_reduxForm.Field, {
-    name: "sex",
-    component: "input",
-    type: "radio",
-    value: "other"
-  }), " ", "Other"))), _react.default.createElement("div", null, _react.default.createElement("label", null, "Favorite Color"), _react.default.createElement("div", null, _react.default.createElement(_reduxForm.Field, {
-    name: "favoriteColor",
-    component: "select"
-  }, _react.default.createElement("option", null), _react.default.createElement("option", {
-    value: "ff0000"
-  }, "Red"), _react.default.createElement("option", {
-    value: "00ff00"
-  }, "Green"), _react.default.createElement("option", {
-    value: "0000ff"
-  }, "Blue")))), _react.default.createElement("div", null, _react.default.createElement("label", {
-    htmlFor: "employed"
-  }, "Employed"), _react.default.createElement("div", null, _react.default.createElement(_reduxForm.Field, {
-    name: "employed",
-    id: "employed",
-    component: "input",
-    type: "checkbox"
-  }))), _react.default.createElement("div", null, _react.default.createElement("label", null, "Notes"), _react.default.createElement("div", null, _react.default.createElement(_reduxForm.Field, {
-    name: "notes",
-    component: "textarea"
   }))), _react.default.createElement("div", null, _react.default.createElement("button", {
     type: "submit",
     disabled: pristine || submitting,
     onClick: handleSubmit
-  }, "Submit"), _react.default.createElement("button", {
+  }, submitting ? "Submitting" : "Submit"), _react.default.createElement("button", {
     type: "button",
     disabled: pristine || submitting,
     onClick: reset
@@ -82755,9 +82762,9 @@ var SimpleTestForm = (0, _reduxForm.reduxForm)({
       submitting = _ref3.submitting;
   return _react.default.createElement(SimpleFormFields, {
     handleSubmit: handleSubmit,
+    submitting: submitting,
     pristine: pristine,
-    reset: reset,
-    submitting: submitting
+    reset: reset
   });
 });
 exports.SimpleTestForm = SimpleTestForm;
@@ -82769,7 +82776,7 @@ var SimpleTestPage = function SimpleTestPage() {
 };
 
 exports.SimpleTestPage = SimpleTestPage;
-},{"react":"../node_modules/react/index.js","redux-form":"../node_modules/redux-form/es/index.js"}],"components/Homepage.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","redux-form":"../node_modules/redux-form/es/index.js","@apollo/react-hooks":"../node_modules/@apollo/react-hooks/lib/react-hooks.esm.js","lodash/get":"../node_modules/lodash/get.js","../Mutations/CreatePeople":"Mutations/CreatePeople.js"}],"components/Homepage.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -83234,7 +83241,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61523" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53009" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
